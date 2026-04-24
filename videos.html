@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escenas Épicas - Star Wars</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #000; color: #fff; font-family: 'Arial', sans-serif; }
+        .text-warning { color: #ffe81f !important; }
+        .video-card { background: #111; border: 1px solid #333; border-radius: 15px; padding: 15px; margin-bottom: 30px; }
+        iframe { border-radius: 10px; border: 1px solid #444; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar border-bottom border-secondary p-3">
+        <div class="container d-flex justify-content-between">
+            <h4 class="text-warning m-0">ESCENAS PREMIUM</h4>
+            <a href="index.html" class="btn btn-outline-light btn-sm">Volver al Inicio</a>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <div class="video-card text-center">
+                    <h5 class="text-warning">Episodio I: Duelo de los Destinos</h5>
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/fM42YTY62rA" title="Duel of the Fates" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mx-auto">
+                <div class="video-card text-center">
+                    <h5 class="text-warning">Episodio II: Batalla de Geonosis</h5>
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/f_m9N_6z1UI" title="Battle of Geonosis" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8 mx-auto">
+                <div class="video-card text-center">
+                    <h5 class="text-warning">Episodio III: Anakin vs Obi-Wan</h5>
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/MqzNgeXfIn0" title="Anakin vs Obi Wan" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Protección simple: Si alguien entra sin estar logueado, lo saca.
+        if (!localStorage.getItem('sesionActiva')) {
+            alert("Acceso denegado. Debes estar logueado.");
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
