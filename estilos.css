@@ -1,4 +1,46 @@
-p{
-    font-size: 16px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+/* Estilos personalizados para Star Wars Fan Page */
+
+body {
+    /* Usamos un color negro puro para el fondo tipo cine */
+    background-color: #000000; 
+    color: #ffffff;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+    /* Eliminamos la fuente Lucida Sans para usar una más moderna y legible */
+}
+
+/* Efecto para las imágenes de los posters */
+img {
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.05); /* Las imágenes se agrandan un poquito al pasar el mouse */
+    filter: brightness(1.2);
+}
+
+/* Color amarillo clásico de Star Wars para los títulos */
+.text-warning {
+    color: #ffe81f !important;
+}
+
+/* Bordes para los botones de episodios */
+.btn-outline-warning {
+    color: #ffe81f;
+    border-color: #ffe81f;
+}
+
+.btn-outline-warning:hover {
+    background-color: #ffe81f;
+    color: #000;
+}
+
+/* Separador visual */
+.border-bottom {
+    border-bottom: 2px solid #ffe81f !important;
 }
