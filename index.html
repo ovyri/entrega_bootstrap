@@ -3,82 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Star Wars Fan Page - Oviri Alegbe</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" href="estilos.css">
+    <title>Star Wars Project - Oviri</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root { --accent: #ffe81f; --bg: #000; }
+        body { background-color: var(--bg); color: #fff; scroll-behavior: smooth; transition: 0.8s; font-family: 'Arial', sans-serif; }
+        
+        /* TEMAS */
+        body.sith { --accent: #ff0000; box-shadow: inset 0 0 150px #600; }
+        body.jedi { --accent: #00a2ff; box-shadow: inset 0 0 150px #004; }
+        body.classic { --accent: #ffe81f; }
+
+        .navbar { border-bottom: 2px solid var(--accent); background: #000; padding: 10px 20px; }
+        .text-starwars { color: var(--accent); font-weight: bold; letter-spacing: 4px; text-transform: uppercase; }
+        
+        /* TRIÁNGULO MULTIMEDIA */
+        .grid-triangulo { display: flex; flex-direction: column; align-items: center; gap: 20px; margin-top: 30px; }
+        .fila-unica { width: 40%; min-width: 300px; }
+        .fila-doble { display: flex; gap: 20px; width: 85%; justify-content: center; flex-wrap: wrap; }
+
+        .media-box { 
+            width: 100%; aspect-ratio: 16/9; border: 2px solid var(--accent); 
+            border-radius: 12px; overflow: hidden; background: #111; cursor: pointer; transition: 0.4s;
+        }
+        .media-box img, .media-box video { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* MODO PROGRAMADOR */
+        #modoProg { 
+            color: #00ff00; font-family: monospace; font-size: 0.75rem; 
+            position: fixed; bottom: 20px; left: 20px; 
+            background: rgba(0,0,0,0.8); padding: 10px; border: 1px solid #00ff00; z-index: 1000;
+        }
+
+        .btn-salir { color: #ff4444; border: none; background: none; font-size: 0.8rem; cursor: pointer; opacity: 0.5; }
+    </style>
 </head>
-<body class="bg-black text-light">
+<body onload="arrancarPagina()" class="classic">
 
-<div class="container py-5 text-center">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/1024px-Star_Wars_Logo.svg.png" 
-         class="img-fluid mb-5" alt="STAR WARS" style="max-height: 200px;">
-
-    <div class="d-flex flex-wrap justify-content-center gap-2 mb-5">
-        <button type="button" class="btn btn-outline-warning">Episodio I</button>
-        <button type="button" class="btn btn-outline-warning">Episodio II</button>
-        <button type="button" class="btn btn-outline-warning">Episodio III</button>
-        <button type="button" class="btn btn-outline-warning">Episodio IV</button>
-        <button type="button" class="btn btn-outline-warning">Episodio V</button>
-        <button type="button" class="btn btn-outline-warning">Episodio VI</button>
-    </div>
-
-    <div class="row justify-content-center mb-5">
-        <div class="col-md-8">
-            <h3 class="fw-bold text-warning">Una galaxia muy, muy lejana...</h3>
-            <p class="lead">Star Wars es una franquicia compuesta de películas, novelas, cómics, videojuegos y juguetes. Un universo de ficción creado por George Lucas.</p>
-        </div>
-    </div>
-
-    <div class="mb-5">
-        <img src="https://culturageek.com.ar/wp-content/uploads/2020/11/Star-Wars-Lucas.jpg" 
-             class="img-fluid rounded shadow-lg mb-4" style="width: 80%;" alt="george lucas">
-        <div class="row justify-content-center">
-            <div class="col-md-9 text-start bg-dark p-4 rounded">
-                <p><strong>George Lucas</strong> (14 de mayo de 1944) es el arquitecto de esta saga. Lucas inició la historia de "Una nueva esperanza", "El Imperio contraataca" y "El retorno del Jedi". Su visión revolucionó la industria cinematográfica antes de vender Lucasfilm a Disney en 2012.</p>
+    <nav class="navbar sticky-top">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <div style="width: 100px;"></div>
+            <h3 class="text-starwars m-0" id="navTitle">STAR WARS</h3>
+            <div class="d-flex align-items-center">
+                <a href="login.html" id="btnAuth" class="btn btn-outline-warning btn-sm fw-bold">LOGIN</a>
+                <button id="xClose" onclick="cerrarSesionLocal()" class="btn-salir d-none ms-2">✖</button>
             </div>
         </div>
-    </div>
+    </nav>
 
-    <h3 class="text-warning mb-4">La Saga Original y Precuelas</h3>
-    <div class="row g-3 mb-5">
-        <div class="col-6 col-md-4 col-lg-2"><img src="img/episodio 1.jpg" class="img-fluid rounded" alt="Episodio 1"></div>
-        <div class="col-6 col-md-4 col-lg-2"><img src="img/episodio 2.jpg" class="img-fluid rounded" alt="Episodio 2"></div>
-        <div class="col-6 col-md-4 col-lg-2"><img src="img/episodio 3.jpg" class="img-fluid rounded" alt="Episodio 3"></div>
-        <div class="col-6 col-md-4 col-lg-2"><img src="img/episodio 4.webp" class="img-fluid rounded" alt="Episodio 4"></div>
-        <div class="col-6 col-md-4 col-lg-2"><img src="img/episodio 5.webp" class="img-fluid rounded" alt="Episodio 5"></div>
-        <div class="col-6 col-md-4 col-lg-2"><img src="img/episodio 6.webp" class="img-fluid rounded" alt="Episodio 6"></div>
-    </div>
+    <div id="modoProg" class="d-none"></div>
 
-    <div class="bg-dark p-5 rounded mb-5">
-        <img src="img/Lucasfilm_logo.webp" class="img-fluid mb-4" style="max-width: 300px;" alt="Lucasfilm">
-        <p class="text-start">Lucasfilm Ltd. LLC, fundada en 1971, es líder mundial en efectos especiales, sonido y animación computarizada. Actualmente bajo la presidencia de Kathleen Kennedy, la empresa continúa expandiendo el universo hacia nuevas fronteras televisivas.</p>
-    </div>
+    <div class="container text-center py-4">
+        <h1 class="text-starwars mb-4" id="mainTitle">STAR WARS</h1>
 
-    <div class="row text-start g-4 mb-5">
-        <div class="col-md-4">
-            <h5 class="text-warning border-bottom pb-2">Episodio IV</h5>
-            <p>La Princesa Leia vuela hacia su patria llevando los planos robados que pueden salvar a su pueblo.</p>
+        <div class="grid-triangulo" id="mainContent"></div>
+
+        <div class="mt-5">
+            <button onclick="rotarTematica()" class="btn btn-outline-light btn-sm px-4">CAMBIAR LADO</button>
         </div>
-        <div class="col-md-4">
-            <h5 class="text-warning border-bottom pb-2">Episodio V</h5>
-            <p>Luke aprende los caminos de la Fuerza con el maestro Yoda mientras el Imperio contraataca.</p>
-        </div>
-        <div class="col-md-4">
-            <h5 class="text-warning border-bottom pb-2">Episodio VI</h5>
-            <p>Luke y Leia viajan a Tatooine para liberar a Han Solo de las garras de Jabba the Hutt.</p>
-        </div>
-    </div>
 
-    <div class="border-top pt-5">
-        <p class="text-muted">Pruebas de Componentes Bootstrap:</p>
-        <div class="btn-group mb-3">
-            <button type="button" class="btn btn-primary">Apple</button>
-            <button type="button" class="btn btn-primary">Samsung</button>
-            <button type="button" class="btn btn-primary">Sony</button>
-        </div>
-    </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-</body>
-</html>
+        <div class="mt-5 pt-5">
+            <hr class="border-secondary">
+            <img src="
